@@ -4,4 +4,5 @@ import run from '..';
 
 console.log('Welcome to the Brain Games!');
 
-run();
+const message = 'Answer "yes" if number even otherwise answer "no".\n';
+run(message);
