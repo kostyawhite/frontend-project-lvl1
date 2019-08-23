@@ -1,2 +1,7 @@
 #!/usr/bin/env node
-console.log('Welcome to the Brain Games JS!');
+
+import run from '..';
+
+console.log('Welcome to the Brain Games!\n');
+
+run();
