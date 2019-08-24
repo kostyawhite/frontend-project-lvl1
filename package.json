@@ -1,6 +1,6 @@
 {
   "name": "kostyawhite-brain-games",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "Hexlet Project Brain Games",
   "main": "src/index.js",
   "bin": {
