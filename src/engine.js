@@ -4,7 +4,7 @@ import { car, cdr } from '@hexlet/pairs';
 
 const rounds = 3;
 
-export default (message, game) => {
+const run = (message, game) => {
   console.log('Welcome to the Brain Game!');
   console.log(message);
   const name = readlineSync.question('May I have your name: ');
@@ -25,3 +25,5 @@ export default (message, game) => {
   }
   console.log(`Congratulations, ${name}!`);
 };
+
+export default run;
