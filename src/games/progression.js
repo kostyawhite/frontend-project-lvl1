@@ -1,24 +1,33 @@
 import { cons } from '@hexlet/pairs';
+import run from '../engine';
+import generateNumber from '../random';
+
+const message = 'What number is missing in the progression?\n';
+const progressionLength = 10;
 
 const generateProgression = (init, step) => {
   let result = `${init}`;
   let value = init + step;
-  for (let i = 0; i < 9; i += 1) {
+  for (let i = 1; i < progressionLength; i += 1) {
     result += ` ${value}`;
     value += step;
   }
   return result;
 };
 
-const game = () => {
-  const init = Math.floor(Math.random() * 10) + 1;
-  const step = Math.floor(Math.random() * 10) + 1;
+const getGameData = () => {
+  const init = generateNumber(1, 10);
+  const step = generateNumber(1, 10);
   const progression = generateProgression(init, step).split(' ');
-  const idxToFind = Math.floor(Math.random() * 10);
-  const correctAsnwer = progression[idxToFind];
-  progression[idxToFind] = '..';
+  const searchIdx = generateNumber(0, 9);
+  const correctAsnwer = progression[searchIdx];
+  progression[searchIdx] = '..';
   const question = progression.join(' ');
   return cons(question, correctAsnwer);
 };
 
-export default game;
+const play = () => {
+  run(message, getGameData);
+};
+
+export default play;

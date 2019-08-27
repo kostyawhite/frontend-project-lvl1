@@ -1,6 +1,11 @@
 import { cons } from '@hexlet/pairs';
+import run from '../engine';
+import generateNumber from '../random';
 
-const calc = (num1, operator, num2) => {
+const message = 'What is the result of the expression?\n';
+const operators = '+-*';
+
+const calculate = (num1, num2, operator) => {
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -13,14 +18,17 @@ const calc = (num1, operator, num2) => {
   }
 };
 
-const game = () => {
-  const operators = '+-*';
-  const operator = operators[Math.floor(Math.random() * 3)];
-  const num1 = Math.floor(Math.random() * 100) + 1;
-  const num2 = Math.floor(Math.random() * 100) + 1;
+const getGameData = () => {
+  const operator = operators[generateNumber(0, 2)];
+  const num1 = generateNumber(1, 100);
+  const num2 = generateNumber(1, 100);
   const question = `${num1} ${operator} ${num2}`;
-  const correctAsnwer = `${calc(num1, operator, num2)}`;
+  const correctAsnwer = `${calculate(num1, num2, operator)}`;
   return cons(question, correctAsnwer);
 };
 
-export default game;
+const play = () => {
+  run(message, getGameData);
+};
+
+export default play;
